@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Le Paon Supermarket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🦚 Le Paon Supermarket</div>
+            <button class="menu-toggle" aria-label="Toggle navigation"></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Rest of the content remains unchanged -->
+    <!-- ... -->
+    <script src="script.js"></script>
+    
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Get in Touch with Us</h1>
+                <p>We're here to serve you better. Reach out anytime!</p>
+            </div>
+        </section>
+
+        <section id="visit-store" class="contact-info-section">
+            <div class="container">
+                <h2 class="section-title">Visit Our Store</h2>
+                <div class="contact-cards-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <h3>Our Location</h3>
+                        <p>Le Paon Supermarket Ltd</p>
+                        <p>Kigali, Rwanda</p>
+                        <p>Find us on the main road KG 3 AVE.</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📞</div>
+                        <h3>Call Us</h3>
+                        <p>+250 790 250 596</p>
+                        <p>Available during business hours</p>
+                        <p>For orders, inquiries, and special requests</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email Us</h3>
+                        <p>info@lepaonsupermarket.rw</p>
+                        <p>Response is within 48 hours</p>
+                        <p>Perfect for detailed inquiries</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">🕒</div>
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 7:30 AM - 10:00 PM</p>
+                        <p>Sunday: 8:00 AM - 10:00 PM</p>
+                        <p>Extended hours for your convenience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-form-section" class="contact-form-section">
+            <div class="container">
+                <div class="contact-form-content">
+                    <div class="form-intro">
+                        <h2>Send Us a Message</h2>
+                        <p class="lead-text">Have a question, special request, or feedback? We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible.</p>
+                        <div class="quick-contact-options">
+                            <h4>Quick Contact Options:</h4>
+                            <ul class="contact-options-list">
+                                <li><span class="option-icon">1.</span> Custom cake orders (48 hours advance notice)</li>
+                                <li><span class="option-icon">2.</span> Personal recipe requests</li>
+                                <li><span class="option-icon">3.</span> Delivery service inquiries</li>
+                                <li><span class="option-icon">4.</span> Catering for events</li>
+                                <li><span class="option-icon">5.</span> General feedback and suggestions</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="contact-form-container">
+                        <div class="success-message" id="successMessage">
+                            <span class="success-icon">✅</span>
+                            <h4>Message Sent Successfully!</h4>
+                            <p>Thank you for contacting us. We'll get back to you within 24 hours.</p>
+                        </div>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name <span class="required">*</span></label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name <span class="required">*</span></label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email Address <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject <span class="required">*</span></label>
+                                <select id="subject" name="subject" required>
+                                    <option value="" disabled selected>Please select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="cake">Custom Cake Order</option>
+                                    <option value="recipe">Personal Recipe Request</option>
+                                    <option value="delivery">Delivery Service</option>
+                                    <option value="catering">Catering Request</option>
+                                    <option value="feedback">Feedback & Suggestions</option>
+                                    <option value="complaint">Complaint</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message <span class="required">*</span></label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="subscribe" name="subscribe">
+                                    <span class="checkmark"></span>
+                                    I'd like to receive updates about new products and special offers
+                                </label>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-icon">➤</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="map-section" class="map-section">
+            <div class="container">
+                <h2 class="section-title">Find Us on the Map</h2>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63648.737211912!2d30.05863955!3d-1.94407295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca43f2b8f8c1b%3A0x8c1d2a8a7e5f5e9c!2sKigali%2C%20Rwanda!5e0!3m2!1sen!2sus!4v1698775432109!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="map-info">
+                    <div class="map-details">
+                        <h4>Directions & Parking</h4>
+                        <p><span class="contact-icon">📍</span> Exact Address: Look for the Le Paon Supermarket sign in Kigali</p>
+                        <p><span class="contact-icon">🚗</span> Parking: Free parking available for customers</p>
+                        <p><span class="contact-icon">🚌</span> Public Transport: Accessible by public transportation</p>
+                        <p><span class="contact-icon">♿</span> Accessibility: Wheelchair accessible entrance and facilities</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq-section" class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How far in advance should I order custom cakes?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We recommend placing custom cake orders at least 48 hours in advance to ensure we can create your perfect cake. For complex designs or large orders, please allow 3-5 days notice.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Do you offer delivery services?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! We offer delivery service within Kigali for orders above RWF 10,000. Free delivery is available for orders over RWF 15,000. Contact us to check if we deliver to your area.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Can you prepare my family recipe?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! We love helping customers enjoy their favorite home recipes. Share your recipe with our chef, and we'll discuss preparation details, timing, and minimum order requirements.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Do you cater for events and parties?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we provide catering services for various events. We can prepare fresh samosas, mini-pizzas, cakes, and other items for your special occasions. Please contact us to discuss your requirements.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What payment methods do you accept?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We accept cash payments and mobile money transfers. For large orders or catering services, we can discuss payment arrangements that work best for you.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Are your products made fresh daily?</h4>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! All our pastries, samosas, chapatis, and other baked goods are made fresh daily using quality ingredients. We take pride in offering you the freshest products possible.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quick-contact-cta" class="quick-contact-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Need Immediate Assistance?</h2>
+                    <p>Don't hesitate to give us a call or visit our store directly. Our friendly team is always ready to help!</p>
+                    <div class="cta-buttons">
+                        <a href="tel:+250790250596" class="cta-button primary">
+                            <span class="btn-icon">📞</span>
+                            <span class="btn-text">Call Now: +250 790 250 596</span>
+                        </a>
+                        <a href="#map-section" class="cta-button secondary">
+                            <span class="btn-icon">📍</span>
+                            <span class="btn-text">Get Directions</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Le Paon Supermarket. All rights reserved. | Experience the difference with us.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
