@@ -170,11 +170,8 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("https://github.com/Mrs-luwase/Le-Paon-Supermarket/blob/master/images/grocery_store%20illustration.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
     z-index: 1;
+    overflow: hidden;
 }
 
 .hero-background::after {
