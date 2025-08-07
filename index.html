@@ -3,43 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Le Paon Supermarket</title>
+    <title>Home | Le Paon Supermarket</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">🦚 Le Paon Supermarket</div>
-            <button class="menu-toggle" aria-label="Toggle navigation" tabindex="0">
-                <span style="font-size:2rem;line-height:1;display:inline-block;">&#9776;</span>
-            </button>
+            <div class="logo-container">
+                <span class="logo">🦚</span>
+                <span class="store-name">Le Paon Supermarket</span>
+            </div>
+            <button class="menu-toggle"></button>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
-    <!-- Rest of the content remains unchanged -->
-    <!-- ... -->
-
-    <!-- Main content -->
+   
     <main>
         <!-- Hero section -->
-        <section class="hero">
+        <section class="hero" id="home">
             <div class="hero-background">
                 <img src="images/grocery_store illustration.jpg" alt="Grocery Store" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:1;" />
             </div>
             <div class="hero-content">
                 <h1>Welcome to Le Paon Supermarket</h1>
-                <p style="color: white;"><b>Your neighborhood stop for fresh homemade Pastries, quality groceries, and a friendly shopping experience .</b></p><br>
+                <p>Your neighborhood stop for fresh homemade Pastries, quality groceries, and a friendly shopping experience.</p><br>
+                
                 <a href="products.html" class="cta-button">Explore Our Products & Services</a>
             </div>
         </section>
 
-        <!-- Products section -->
-        <section id="products">
+        <!-- Products & service showcase section -->
+        <section class="products" id="products">
             <div class="container">
                 <h2 class="section-title">What We Offer</h2>
                 <div class="products-grid">
@@ -93,23 +92,21 @@
                     </div>
                 </div>
             </div>
-
-
-          <aside>
+        </section>
          <!-- Manager Profile -->
-                    <div class="manager-profile">
-                        <div><img src="images/Mypicture.jpg" class="manager-photo"></div>
-                        <h3>Mrs.Leiss Uwase</h3>
-                        <p class="manager-title">Store Manager</p>
-                        <p class="manager-bio">"At Le Paon, we’re more than just a supermarket, we’re your neighbors. Our passion is rooted in serving the community with fresh, homemade flavors and everyday essentials you can trust. Walk in as a customer, leave feeling like family. </p>
-                </div>
-            </div>
-        </aside>
+        <section class="manager-profile">
+                <img src="images/Mypicture.jpg" class="manager-photo"></div>
+                <h3>Mrs.Leiss Uwase</h3>
+                <p class="manager-title">Store Manager</p>
+                <p class="manager-bio">"At Le Paon, we’re more than just a supermarket, we’re your neighbors. Our passion is rooted in serving the community with fresh, homemade flavors and everyday essentials you can trust. Walk in as a customer, leave feeling like family."</p>
+         </div>
+    
+        </section>
 
         <!-- Customer Reviews section -->
         <section id="reviews" class="reviews">
             <div class="container">
-                <h2 class="section-title">What Our Customers Say</h2>
+                <h2 class="review-title">What Our Customers Say</h2>
                 <div class="reviews-grid">
                     <div class="review-card">
                         <div class="review-header">
@@ -156,7 +153,9 @@
                     </div>
                 </div>
             </div>
-             <!-- Add Review Form -->
+        </section>
+           <section class="add-review">
+            <!-- Add Review Form -->
                 <div class="add-review-form">
                     <h3>Share Your Experience</h3>
                     <div class="success-message" id="reviewSuccessMessage">
@@ -188,22 +187,21 @@
 
         <!-- Contact section -->
         <section id="contact" class="contact">
-            <div class="container">
                 <h2 class="section-title">Visit Us Today</h2>
-                <div class="contact-content">
+                <div class="contact-sections-grid">
                     <div class="contact-info">
                         <h3>Le Paon Supermarket Details</h3>
-                        <p><strong>📍 Address:</strong> Kigali, Rwanda</p>
-                        <p><strong>📞 Phone:</strong> +250 790 250 596</p>
-                        <p><strong>📧 Email:</strong> info@lepaonsupermarket.rw</p>
-                        <p><strong>🕒 Hours:</strong></p>
+                        <p><strong> Address:</strong> Kigali, Rwanda</p>
+                        <p><strong> Phone:</strong> +250 790 250 596</p>
+                        <p><strong> Email:</strong> info@lepaonsupermarket.rw</p>
+                        <p><strong>Working Time:</strong></p>
                         <p>Monday - Friday: 7:30 AM - 10:00 PM</p>
                         <p>Sunday: 8:00 AM - 10:00 PM</p>
                     </div>
 
                     <div class="map-container">
                         <div class="container">
-                        <h4 class="section-title">Visit Our Location</h4>
+                        <h4 class="section-title">Our Location</h4>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.533512454198!2d30.07492767321239!3d-1.939128736684458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca76d323a7027%3A0x180ec66f05034494!2sLE%20PAON%20SUPERMARKET%20LTD!5e0!3m2!1sfr!2srw!4v1752926613329!5m2!1sfr!2srw" 
                     width="600" 
                     height="450" 
@@ -213,6 +211,38 @@
                     referrerpolicy="no-referrer-when-downgrade">
                    </iframe>
                     
+                </div>
+            </div>
+        </section>
+
+         <section class="quick-links">
+            <div class="container">
+                <h2 class="quick-link-title">Quick Links</h2>
+                <div class="quick-links-grid">
+                    <div class="quick-link">
+                        <h3>Follow Us</h3>
+                        <ul>
+                            <li><i class="fab fa-facebook-f"></i> <a href="https://facebook.com/lepaonsupermarket" target="_blank">Facebook</a></li>
+                            <li><i class="fab fa-twitter"></i> <a href="https://twitter.com/lepaonsupermarket" target="_blank">Twitter</a></li>
+                            <li><i class="fab fa-instagram"></i> <a href="https://instagram.com/lepaonsupermarket" target="_blank">Instagram</a></li>
+                        </ul>
+                    </div>
+                    <div class="quick-link">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#faqs">FAQs</a></li>
+                            <li><a href="#refund-policy">Refund Policy</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="quick-link">
+                        <h3>Account</h3>
+                        <ul>
+                            <li><a href="#login">Login</a></li>
+                            <li><a href="#admin-panel">Admin Panel</a></li>
+                            <li><a href="#feedback">Feedback</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
