@@ -3,706 +3,374 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Le Paon Supermarket</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Products | Le Paon Supermarket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="productstyle.css">
+   
 </head>
 <body>
+    <!-- Header with Navigation -->
     <header>
         <nav>
-            <div class="logo">🦚 Le Paon Supermarket</div>
-            <button class="menu-toggle" aria-label="Toggle navigation"></button>
-            <ul class="nav-links">
+            <div class="logo-container">
+                <span class="logo">🦚</span>
+                <span class="store-name">Le Paon Supermarket</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="products.html" class="active">Products</a></li>
-                <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="login.html">Login</a></li>
             </ul>
         </nav>
     </header>
-    <!-- Rest of the content remains unchanged -->
-    <!-- ... -->
-    
+
+    <!-- Search and Cart Section -->
+    <section class="search-cart-section">
+        <div class="search-cart-container">
+            <div class="search-container">
+                <select class="category-dropdown" id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="food">Food Products</option>
+                    <option value="cleaning">Cleaning & Sanitary</option>
+                    <option value="cosmetics">Cosmetics</option>
+                    <option value="alcohol">Alcohol Drinks</option>
+                    <option value="soft-drinks">Non-Alcohol Drinks</option>
+                    <option value="kitchenware">Kitchenware</option>
+                    <option value="smoking">Smoking & Cigarettes</option>
+                    <option value="toys">Toys</option>
+                </select>
+                <input type="text" class="search-input" placeholder="What are you looking for?" id="searchInput">
+                <button class="search-btn" id="searchBtn">🔍</button>
+            </div>
+            <a href="cart.html" class="cart-link" id="cartLink">
+                <span class="cart-icon">🛒</span>
+                <span>View Cart</span>
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Categories Menu Bar -->
+    <nav class="categories-menu">
+        <div class="categories-container">
+            <div class="categories-nav">
+                <div class="category-item">
+                    <button class="category-btn" data-category="food">
+                        Food Products
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Bread and bakery items</a>
+                        <a href="#" class="dropdown-item">Breakfast cereals</a>
+                        <a href="#" class="dropdown-item">Dairy Products</a>
+                        <a href="#" class="dropdown-item">Chocolate</a>
+                        <a href="#" class="dropdown-item">Snacks & Confectionery</a>
+                        <a href="#" class="dropdown-item">Biscuits</a>
+                        <a href="#" class="dropdown-item">Canned Foods</a>
+                        <a href="#" class="dropdown-item">Ingredients & Sauces</a>
+                        <a href="#" class="dropdown-item">Pasta & noodles</a>
+                    </div>
+                </div>
+                
+                <div class="category-item">
+                    <button class="category-btn" data-category="cleaning">
+                        Cleaning & Sanitary
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Household Cleaners</a>
+                        <a href="#" class="dropdown-item">Personal Hygiene</a>
+                        <a href="#" class="dropdown-item">Laundry Supplies</a>
+                        <a href="#" class="dropdown-item">Paper Products</a>
+                    </div>
+                </div>
+
+                <div class="category-item">
+                    <button class="category-btn" data-category="cosmetics">
+                        Cosmetics
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Skincare</a>
+                        <a href="#" class="dropdown-item">Makeup</a>
+                        <a href="#" class="dropdown-item">Hair Care</a>
+                        <a href="#" class="dropdown-item">Fragrances</a>
+                    </div>
+                </div>
+
+                <div class="category-item">
+                    <button class="category-btn" data-category="alcohol">
+                        Alcohol Drinks
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Beer</a>
+                        <a href="#" class="dropdown-item">Wine</a>
+                        <a href="#" class="dropdown-item">Spirits</a>
+                        <a href="#" class="dropdown-item">Local Drinks</a>
+                    </div>
+                </div>
+
+                <div class="category-item">
+                    <button class="category-btn" data-category="soft-drinks">
+                        Non-Alcohol Drinks
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Soft Drinks</a>
+                        <a href="#" class="dropdown-item">Juices</a>
+                        <a href="#" class="dropdown-item">Water</a>
+                        <a href="#" class="dropdown-item">Tea & Coffee</a>
+                    </div>
+                </div>
+
+                <div class="category-item">
+                    <button class="category-btn" data-category="kitchenware">
+                        Kitchenware
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Cookware</a>
+                        <a href="#" class="dropdown-item">Utensils</a>
+                        <a href="#" class="dropdown-item">Storage</a>
+                        <a href="#" class="dropdown-item">Appliances</a>
+                    </div>
+                </div>
+
+                <div class="category-item">
+                    <button class="category-btn" data-category="smoking">
+                        Smoking & Cigarettes
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Dunhill</a>
+                        <a href="#" class="dropdown-item">Tobacco</a>
+                        <a href="#" class="dropdown-item">Accessories</a>
+                    </div>
+                </div>
+
+                <div class="category-item">
+                    <button class="category-btn" data-category="toys">
+                        Toys
+                        <span class="dropdown-arrow">▼</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Educational Toys</a>
+                        <a href="#" class="dropdown-item">Action Figures</a>
+                        <a href="#" class="dropdown-item">Board Games</a>
+                        <a href="#" class="dropdown-item">Outdoor Toys</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <main>
-        <section class="page-header">
+        <!-- Products Hero Section -->
+        <section class="products-hero">
             <div class="container">
                 <h1>Our Products</h1>
-                <p>Explore our wide range of fresh pastries, quality groceries, and everyday essentials.</p>
+                <p>Discover our wide selection of homemade delicacies, daily essentials, and quality groceries crafted with care</p>
             </div>
         </section>
 
-        <section id="products" class="products-section">
+        <!-- Products Content -->
+        <section class="products-content">
             <div class="container">
-                <h2 class="section-title">Product Catalog</h2>
-                <div class="products-grid">
-                    <!-- Soft Drinks -->
-                    <div class="product-category">
-                        <h3>Soft Drinks</h3>
-                        <table class="product-table">
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Product</th>
-                                    <th>Size</th>
-                                    <th>Price (RWF)</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img src="images/fanta.jpg" alt="Fanta" class="product-image"></td>
-                                    <td>Fanta</td>
-                                    <td>250ml</td>
-                                    <td>500</td>
-                                    <td>Refreshing citrus-flavored soft drink.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/fanta.jpg" alt="Fanta" class="product-image"></td>
-                                    <td>Fanta</td>
-                                    <td>500ml</td>
-                                    <td>800</td>
-                                    <td>Refreshing citrus-flavored soft drink.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/fanta.jpg" alt="Fanta" class="product-image"></td>
-                                    <td>Fanta</td>
-                                    <td>1L</td>
-                                    <td>1,200</td>
-                                    <td>Refreshing citrus-flavored soft drink.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/inyange_milk.jpg" alt="Inyange Milk" class="product-image"></td>
-                                    <td>Inyange Milk</td>
-                                    <td>500ml</td>
-                                    <td>1,000</td>
-                                    <td>Fresh, locally sourced milk from Inyange.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/inyange_milk.jpg" alt="Inyange Milk" class="product-image"></td>
-                                    <td>Inyange Milk</td>
-                                    <td>1L</td>
-                                    <td>1,800</td>
-                                    <td>Fresh, locally sourced milk from Inyange.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/inyange_juice.jpg" alt="Inyange Juice" class="product-image"></td>
-                                    <td>Inyange Juice</td>
-                                    <td>500ml</td>
-                                    <td>1,200</td>
-                                    <td>100% natural fruit juice from Inyange.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/inyange_juice.jpg" alt="Inyange Juice" class="product-image"></td>
-                                    <td>Inyange Juice</td>
-                                    <td>1L</td>
-                                    <td>2,000</td>
-                                    <td>100% natural fruit juice from Inyange.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/frosti.jpg" alt="Frosti" class="product-image"></td>
-                                    <td>Frosti</td>
-                                    <td>500ml</td>
-                                    <td>900</td>
-                                    <td>Chilled, refreshing soft drink.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/frosti.jpg" alt="Frosti" class="product-image"></td>
-                                    <td>Frosti</td>
-                                    <td>1L</td>
-                                    <td>1,500</td>
-                                    <td>Chilled, refreshing soft drink.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/savannah.jpg" alt="Savannah" class="product-image"></td>
-                                    <td>Savannah</td>
-                                    <td>500ml</td>
-                                    <td>1,000</td>
-                                    <td>Popular alcoholic cider with crisp taste.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/savannah.jpg" alt="Savannah" class="product-image"></td>
-                                    <td>Savannah</td>
-                                    <td>1L</td>
-                                    <td>1,800</td>
-                                    <td>Popular alcoholic cider with crisp taste.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/salama.jpg" alt="Salama" class="product-image"></td>
-                                    <td>Salama</td>
-                                    <td>500ml</td>
-                                    <td>800</td>
-                                    <td>Refreshing non-alcoholic beverage.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/salama.jpg" alt="Salama" class="product-image"></td>
-                                    <td>Salama</td>
-                                    <td>1L</td>
-                                    <td>1,400</td>
-                                    <td>Refreshing non-alcoholic beverage.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/sunquick.jpg" alt="Sunquick" class="product-image"></td>
-                                    <td>Sunquick</td>
-                                    <td>500ml</td>
-                                    <td>2,500</td>
-                                    <td>Concentrated fruit drink for dilution.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/sunquick.jpg" alt="Sunquick" class="product-image"></td>
-                                    <td>Sunquick</td>
-                                    <td>1L</td>
-                                    <td>4,000</td>
-                                    <td>Concentrated fruit drink for dilution.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/tunda.jpg" alt="Tunda" class="product-image"></td>
-                                    <td>Tunda</td>
-                                    <td>500ml</td>
-                                    <td>1,000</td>
-                                    <td>Local fruit juice with vibrant flavors.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/tunda.jpg" alt="Tunda" class="product-image"></td>
-                                    <td>Tunda</td>
-                                    <td>1L</td>
-                                    <td>1,800</td>
-                                    <td>Local fruit juice with vibrant flavors.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/azam.jpg" alt="Azam Energy Drink" class="product-image"></td>
-                                    <td>Azam Energy Drink</td>
-                                    <td>250ml</td>
-                                    <td>1,200</td>
-                                    <td>Energizing drink for a quick boost.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/azam.jpg" alt="Azam Energy Drink" class="product-image"></td>
-                                    <td>Azam Energy Drink</td>
-                                    <td>500ml</td>
-                                    <td>2,000</td>
-                                    <td>Energizing drink for a quick boost.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/embe_juice.jpg" alt="Embe Juice" class="product-image"></td>
-                                    <td>Embe Juice</td>
-                                    <td>500ml</td>
-                                    <td>1,200</td>
-                                    <td>Tamarind-flavored juice, locally made.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/embe_juice.jpg" alt="Embe Juice" class="product-image"></td>
-                                    <td>Embe Juice</td>
-                                    <td>1L</td>
-                                    <td>2,000</td>
-                                    <td>Tamarind-flavored juice, locally made.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Sample Products -->
+                    <div class="product-card">
+                        <img src="images/samosas.jpg" alt="Fresh Beef Samosas" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Fresh Beef Samosas</h3>
+                            <div class="product-price">500 RWF</div>
+                            <p class="product-description">Crispy, golden samosas filled with seasoned beef and vegetables, made fresh daily.</p>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
                     </div>
 
-                    <!-- Pastries -->
-                    <div class="product-category">
-                        <h3>Pastries</h3>
-                        <table class="product-table">
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Product</th>
-                                    <th>Price (RWF)</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img src="images/samosa.jpg" alt="Samosa" class="product-image"></td>
-                                    <td>Samosa</td>
-                                    <td>500</td>
-                                    <td>Crispy, golden samosas with savory fillings.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/meatballs.jpg" alt="Meatballs" class="product-image"></td>
-                                    <td>Meatballs</td>
-                                    <td>1,000</td>
-                                    <td>Flavorful meatballs with traditional spices.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/chapattis.jpg" alt="Chapattis" class="product-image"></td>
-                                    <td>Chapattis</td>
-                                    <td>300</td>
-                                    <td>Soft, freshly made flatbreads.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/pancakes.jpg" alt="Pancakes" class="product-image"></td>
-                                    <td>Pancakes</td>
-                                    <td>600</td>
-                                    <td>Fluffy pancakes, perfect for breakfast.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/donuts.jpg" alt="Donuts" class="product-image"></td>
-                                    <td>Donuts</td>
-                                    <td>800</td>
-                                    <td>Sweet, glazed donuts made fresh daily.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/pizzas.jpg" alt="Mini Pizzas" class="product-image"></td>
-                                    <td>Pizzas (Mini)</td>
-                                    <td>1,500</td>
-                                    <td>Bite-sized pizzas with fresh toppings.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/cupcakes.jpg" alt="Cupcakes" class="product-image"></td>
-                                    <td>Cupcakes</td>
-                                    <td>1,000</td>
-                                    <td>Delicious cupcakes for any occasion.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/cakes.jpg" alt="Cakes" class="product-image"></td>
-                                    <td>Cakes</td>
-                                    <td>10,000</td>
-                                    <td>Homemade cakes for celebrations.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="product-card">
+                        <img src="images/cupcakes.jpg" alt="Vanilla Cupcakes" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Vanilla Cupcakes</h3>
+                            <div class="product-price">800 RWF</div>
+                            <p class="product-description">Rich vanilla cupcakes with creamy frosting, perfect for celebrations.</p>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
                     </div>
 
-                    <!-- Daily Consumed Products -->
-                    <div class="product-category">
-                        <h3>Daily Consumed Products</h3>
-                        <table class="product-table">
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Product</th>
-                                    <th>Price (RWF)</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img src="images/bread.jpg" alt="Bread" class="product-image"></td>
-                                    <td>Breads</td>
-                                    <td>1,500</td>
-                                    <td>Freshly baked assorted breads.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/simba_bread.jpg" alt="Simba Bread" class="product-image"></td>
-                                    <td>Simba Bread</td>
-                                    <td>2,000</td>
-                                    <td>High-quality sliced bread from Simba.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/panera_bread.jpg" alt="Panera Bread" class="product-image"></td>
-                                    <td>Panera Bread</td>
-                                    <td>2,500</td>
-                                    <td>Artisanal bread with rich flavor.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/milk_bread.jpg" alt="Milk Bread" class="product-image"></td>
-                                    <td>Milk Bread</td>
-                                    <td>2,000</td>
-                                    <td>Soft, sweet milk-based bread.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/la_galette.jpg" alt="La Galette" class="product-image"></td>
-                                    <td>La Galette</td>
-                                    <td>1,800</td>
-                                    <td>Traditional flatbread, locally made.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/carrefour_bread.jpg" alt="Carrefour Bread" class="product-image"></td>
-                                    <td>Carrefour Bread</td>
-                                    <td>2,200</td>
-                                    <td>Premium bread from Carrefour.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="product-card">
+                        <img src="images/meatballs.jpg" alt="Homemade Meatballs" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Homemade Meatballs</h3>
+                            <div class="product-price">1200 RWF</div>
+                            <p class="product-description">Tender meatballs made with quality beef and traditional seasonings.</p>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
                     </div>
 
-                    <!-- Wines & Liquors -->
-                    <div class="product-category">
-                        <h3>Wines & Liquors</h3>
-                        <table class="product-table">
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Product</th>
-                                    <th>Price (RWF)</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img src="images/wines.jpg" alt="Wines" class="product-image"></td>
-                                    <td>Various Wines</td>
-                                    <td>15,000</td>
-                                    <td>Selection of red, white, and rosé wines.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/liquors.jpg" alt="Liquors" class="product-image"></td>
-                                    <td>Various Liquors</td>
-                                    <td>20,000</td>
-                                    <td>Premium spirits for all occasions.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="product-card">
+                        <img src="images/mini_pizza.jpg" alt="Mini Pizzas" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Mini Pizzas (6 pieces)</h3>
+                            <div class="product-price">2000 RWF</div>
+                            <p class="product-description">Bite-sized pizzas with fresh toppings, perfect for parties or quick meals.</p>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
                     </div>
 
-                    <!-- Hygiene Products -->
-                    <div class="product-category">
-                        <h3>Hygiene Products</h3>
-                        <table class="product-table">
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Product</th>
-                                    <th>Size/Type</th>
-                                    <th>Price (RWF)</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img src="images/toilet_tissue.jpg" alt="Toilet Tissue" class="product-image"></td>
-                                    <td>Toilet Tissues</td>
-                                    <td>4-Pack</td>
-                                    <td>2,000</td>
-                                    <td>Soft and durable toilet tissues.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/rolling_tissue.jpg" alt="Rolling Tissue" class="product-image"></td>
-                                    <td>Rolling Tissues</td>
-                                    <td>Single Roll</td>
-                                    <td>1,000</td>
-                                    <td>Versatile tissues for kitchen use.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/sanitary_pads.jpg" alt="Sanitary Pads" class="product-image"></td>
-                                    <td>Sanitary Pads</td>
-                                    <td>10-Pack</td>
-                                    <td>2,500</td>
-                                    <td>Comfortable and reliable sanitary pads.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/slippers.jpg" alt="Jambo Slippers" class="product-image"></td>
-                                    <td>Slippers (Jambo No.1)</td>
-                                    <td>Various Sizes</td>
-                                    <td>5,000</td>
-                                    <td>High-quality, durable slippers.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/pampers.jpg" alt="Pampers" class="product-image"></td>
-                                    <td>Pampers (Mami Love)</td>
-                                    <td>Medium Pack</td>
-                                    <td>8,000</td>
-                                    <td>Soft and absorbent baby diapers.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="product-card">
+                        <img src="images/groceries.jpg" alt="Daily Essentials" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Daily Essentials Kit</h3>
+                            <div class="product-price">2500 RWF</div>
+                            <p class="product-description">Basic household items including soap, detergent, and cleaning supplies.</p>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
                     </div>
 
-                    <!-- Snacks -->
-                    <div class="product-category">
-                        <h3>Snacks</h3>
-                        <table class="product-table">
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Product</th>
-                                    <th>Price (RWF)</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img src="images/winnaz_crisps.jpg" alt="Winnaz Crisps" class="product-image"></td>
-                                    <td>Winnaz Crisps</td>
-                                    <td>1,200</td>
-                                    <td>Crispy potato chips in various flavors.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/peanuts.jpg" alt="Peanuts" class="product-image"></td>
-                                    <td>Peanuts</td>
-                                    <td>800</td>
-                                    <td>Roasted peanuts for a healthy snack.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/biscuits.jpg" alt="Biscuits" class="product-image"></td>
-                                    <td>Biscuits</td>
-                                    <td>1,500</td>
-                                    <td>Assorted biscuits for tea time.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- Sweets & Confectionery -->
-                    <div class="product-category">
-                        <h3>Sweets & Confectionery</h3>
-                        <table class="product-table">
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Product</th>
-                                    <th>Price (RWF)</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img src="images/sweets.jpg" alt="Sweets" class="product-image"></td>
-                                    <td>Sweets</td>
-                                    <td>500</td>
-                                    <td>Assorted hard candies.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/toffee.jpg" alt="Toffee" class="product-image"></td>
-                                    <td>Toffee</td>
-                                    <td>600</td>
-                                    <td>Chewy toffee treats.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/mentos.jpg" alt="Chew Gums" class="product-image"></td>
-                                    <td>Chew Gums (Mentos, Fresh)</td>
-                                    <td>800</td>
-                                    <td>Refreshing chewing gums.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/mars.jpg" alt="Chocolates" class="product-image"></td>
-                                    <td>Chocolates (Mars, Others)</td>
-                                    <td>1,500</td>
-                                    <td>Rich chocolate bars.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/condoms.jpg" alt="Condoms" class="product-image"></td>
-                                    <td>Condoms</td>
-                                    <td>2,000</td>
-                                    <td>Reliable protection for safety.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/cigarettes.jpg" alt="Cigarettes" class="product-image"></td>
-                                    <td>Cigarettes (Dunhill, Intore)</td>
-                                    <td>3,000</td>
-                                    <td>Premium cigarette brands.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/lighters.jpg" alt="Lighters" class="product-image"></td>
-                                    <td>Lighters</td>
-                                    <td>500</td>
-                                    <td>Durable lighters for everyday use.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- Household Items -->
-                    <div class="product-category">
-                        <h3>Household Items</h3>
-                        <table class="product-table">
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Product</th>
-                                    <th>Size</th>
-                                    <th>Price (RWF)</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img src="images/basins.jpg" alt="Basins" class="product-image"></td>
-                                    <td>Basins</td>
-                                    <td>Medium</td>
-                                    <td>3,000</td>
-                                    <td>Durable basins for washing.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/buckets.jpg" alt="Buckets" class="product-image"></td>
-                                    <td>Buckets</td>
-                                    <td>10L</td>
-                                    <td>2,500</td>
-                                    <td>Sturdy buckets for household use.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/clothes_bins.jpg" alt="Clothes Bins" class="product-image"></td>
-                                    <td>Clothes Bins</td>
-                                    <td>Large</td>
-                                    <td>5,000</td>
-                                    <td>Spacious bins for laundry.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- Ingredients -->
-                    <div class="product-category">
-                        <h3>Ingredients</h3>
-                        <table class="product-table">
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Product</th>
-                                    <th>Price (RWF)</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img src="images/masala_tea.jpg" alt="Masala Tea" class="product-image"></td>
-                                    <td>Masala Tea</td>
-                                    <td>2,000</td>
-                                    <td>Aromatic spiced tea blend.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/ginger.jpg" alt="Ginger" class="product-image"></td>
-                                    <td>Ginger</td>
-                                    <td>1,000</td>
-                                    <td>Fresh ginger for cooking.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/black_pepper.jpg" alt="Black Pepper" class="product-image"></td>
-                                    <td>Black Pepper</td>
-                                    <td>1,500</td>
-                                    <td>Ground black pepper for seasoning.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/pilau.jpg" alt="Pilau" class="product-image"></td>
-                                    <td>Pilau</td>
-                                    <td>2,000</td>
-                                    <td>Spice mix for authentic pilau rice.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/canned_mushrooms.jpg" alt="Canned Mushrooms" class="product-image"></td>
-                                    <td>Canned Mushrooms</td>
-                                    <td>2,500</td>
-                                    <td>Preserved mushrooms for cooking.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/canned_corn.jpg" alt="Canned Corn" class="product-image"></td>
-                                    <td>Canned Corn</td>
-                                    <td>2,000</td>
-                                    <td>Sweet corn kernels in a can.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/canned_coconut_milk.jpg" alt="Canned Coconut Milk" class="product-image"></td>
-                                    <td>Canned Coconut Milk</td>
-                                    <td>3,000</td>
-                                    <td>Rich coconut milk for curries.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/canned_sausage.jpg" alt="Canned Sausage" class="product-image"></td>
-                                    <td>Canned Everyday Sausage</td>
-                                    <td>3,500</td>
-                                    <td>Ready-to-eat canned sausages.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/vinegar.jpg" alt="Vinegar" class="product-image"></td>
-                                    <td>Vinegar</td>
-                                    <td>1,500</td>
-                                    <td>Versatile vinegar for cooking and cleaning.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/soya_sauce.jpg" alt="Soya Sauce" class="product-image"></td>
-                                    <td>Soya Sauce</td>
-                                    <td>2,000</td>
-                                    <td>Savory soy sauce for Asian dishes.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/mayonnaise.jpg" alt="Mayonnaise" class="product-image"></td>
-                                    <td>Mayonnaise</td>
-                                    <td>2,500</td>
-                                    <td>Creamy mayonnaise for sandwiches.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/ketchup.jpg" alt="Ketchup" class="product-image"></td>
-                                    <td>Ketchup</td>
-                                    <td>2,000</td>
-                                    <td>Classic tomato ketchup.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/cube_maggi.jpg" alt="Cube Maggi" class="product-image"></td>
-                                    <td>Cube Maggi</td>
-                                    <td>1,000</td>
-                                    <td>Seasoning cubes for enhanced flavor.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/tomato_sauce.jpg" alt="Tomato Sauce" class="product-image"></td>
-                                    <td>Tomato Sauce</td>
-                                    <td>2,000</td>
-                                    <td>Rich tomato sauce for cooking.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- Detergents -->
-                    <div class="product-category">
-                        <h3>Detergents</h3>
-                        <table class="product-table">
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Product</th>
-                                    <th>Price (RWF)</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img src="images/liquid_soap.jpg" alt="Liquid Soap" class="product-image"></td>
-                                    <td>Liquid Soaps</td>
-                                    <td>2,500</td>
-                                    <td>Effective liquid soap for cleaning.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/morning_fresh.jpg" alt="Morning Fresh" class="product-image"></td>
-                                    <td>Morning Fresh Dish Soap</td>
-                                    <td>3,000</td>
-                                    <td Powerful dishwashing liquid.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/sunlight_soap.jpg" alt="Sunlight Geisha Soap" class="product-image"></td>
-                                    <td>Sunlight Geisha Soap</td>
-                                    <td>1,500</td>
-                                    <td>Gentle soap for bathing.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/vim.jpg" alt="Vim" class="product-image"></td>
-                                    <td>Vim</td>
-                                    <td>2,000</td>
-                                    <td>Strong cleaning powder for surfaces.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/sosoft.jpg" alt="Sosoft" class="product-image"></td>
-                                    <td>Sosoft</td>
-                                    <td>2,500</td>
-                                    <td>Fabric softener for laundry.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/din_pic.jpg" alt="Din Pic" class="product-image"></td>
-                                    <td>Din Pic</td>
-                                    <td>1,800</td>
-                                    <td>Effective detergent for tough stains.</td>
-                                </tr>
-                                <tr>
-                                    <td><img src="images/omo.jpg" alt="Omo Washing Powder" class="product-image"></td>
-                                    <td>Omo Washing Powder</td>
-                                    <td>3,000</td>
-                                    <td>Powerful laundry detergent.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="product-card">
+                        <img src="images/recipe_services.jpg" alt="Homemade Isombe" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Homemade Isombe</h3>
+                            <div class="product-price">1500 RWF</div>
+                            <p class="product-description">Traditional Rwandan dish made with cassava leaves, groundnuts, and meat.</p>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>© 2025 Le Paon Supermarket. All rights reserved. | Experience the difference with us.</p>
+            <p>&copy; 2025 Le Paon Supermarket. All rights reserved. | Experience the difference with us.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Category dropdown functionality
+        const categoryItems = document.querySelectorAll('.category-item');
+
+        categoryItems.forEach(item => {
+            const button = item.querySelector('.category-btn');
+            
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                // Close other dropdowns
+                categoryItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current dropdown
+                item.classList.toggle('active');
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', () => {
+            categoryItems.forEach(item => {
+                item.classList.remove('active');
+            });
+        });
+
+        // Prevent dropdown from closing when clicking inside
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        });
+
+        // Search functionality
+        const searchBtn = document.getElementById('searchBtn');
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        function performSearch() {
+            const query = searchInput.value.trim();
+            const category = categoryFilter.value;
+            
+            if (query || category !== 'all') {
+                console.log('Searching for:', query, 'in category:', category);
+                // Implement search logic here
+                // This could filter the products grid or redirect to a search results page
+            }
+        }
+
+        // Cart functionality
+        let cartCount = 0;
+        const cartCountElement = document.getElementById('cartCount');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                cartCount++;
+                cartCountElement.textContent = cartCount;
+                
+                // Visual feedback
+                button.style.background = '#90c695';
+                button.textContent = 'Added!';
+                
+                setTimeout(() => {
+                    button.style.background = '#2c5530';
+                    button.textContent = 'Add to Cart';
+                }, 1500);
+            });
+        });
+
+        // Category filtering
+        categoryItems.forEach(item => {
+            const button = item.querySelector('.category-btn');
+            const dropdownItems = item.querySelectorAll('.dropdown-item');
+            
+            dropdownItems.forEach(dropdownItem => {
+                dropdownItem.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const category = button.dataset.category;
+                    const subcategory = dropdownItem.textContent;
+                    
+                    console.log('Filtering by:', category, '-', subcategory);
+                    // Implement filtering logic here
+                    
+                    // Close dropdown
+                    item.classList.remove('active');
+                });
+            });
+        });
+
+        // Smooth scrolling
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Initialize cart count from storage (if available)
+        const savedCartCount = parseInt(localStorage.getItem('lepacon-cart-count') || '0');
+        cartCount = savedCartCount;
+        cartCountElement.textContent = cartCount;
+    </script>
 </body>
 </html>
