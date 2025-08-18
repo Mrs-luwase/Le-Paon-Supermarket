@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Le Paon Supermarket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="loginstyle.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <span class="logo">🦚</span>
+                <span class="store-name">Le Paon Supermarket</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="signup.html" onclick="showSignup()" class="signup-nav">Sign Up</a></li>
+                <li><a href="login.html" class="active">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Welcome Back</h1>
+                <p>Sign in to your Le Paon account</p>
+            </div>
+
+            <div class="login-tabs">
+                <button class="tab-button active" onclick="showUserLogin()">User Login</button>
+                <button class="tab-button" onclick="showAdminLogin()">Admin Login</button>
+            </div>
+
+            <div class="message" id="messageBox"></div>
+
+            <!-- User Login Form -->
+            <form class="login-form" id="userLoginForm">
+                <div class="form-group">
+                    <label for="userEmail">Email Address</label>
+                    <input type="email" id="userEmail" name="email" required placeholder="Enter your email">
+                </div>
+
+                <div class="form-group">
+                    <label for="userPassword">Password</label>
+                    <input type="password" id="userPassword" name="password" required placeholder="Enter your password">
+                </div>
+
+                <div class="remember-forgot">
+                    <div class="remember-me">
+                        <input type="checkbox" id="rememberMe" name="remember">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password" onclick="showForgotPassword()">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="login-button">Sign In</button>
+
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+                <div class="signup-link">
+                    <p>Don't have an account? <a href="#" onclick="showSignup()">Create one now</a></p>
+                </div>
+            </form>
+
+            <!-- Admin Login Form -->
+            <form class="login-form hidden" id="adminLoginForm">
+                <div class="form-group">
+                    <label for="adminUsername">Admin Username</label>
+                    <input type="text" id="adminUsername" name="username" required placeholder="Enter admin username">
+                </div>
+
+                <div class="form-group">
+                    <label for="adminPassword">Admin Password</label>
+                    <input type="password" id="adminPassword" name="password" required placeholder="Enter admin password">
+                </div>
+
+                <div class="form-group">
+                    <label for="adminCode">Access Code</label>
+                    <input type="text" id="adminCode" name="access_code" required placeholder="Enter access code">
+                </div>
+
+                <button type="submit" class="login-button">Access Admin Panel</button>
+
+                <div class="admin-access">
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Quick Access:</p>
+                    <button type="button" class="admin-button" onclick="accessAdminPanel()">Go to Admin Panel</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Tab switching
+        function showUserLogin() {
+            document.getElementById('userLoginForm').classList.remove('hidden');
+            document.getElementById('adminLoginForm').classList.add('hidden');
+            
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function showAdminLogin() {
+            document.getElementById('userLoginForm').classList.add('hidden');
+            document.getElementById('adminLoginForm').classList.remove('hidden');
+            
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Form submissions
+        document.getElementById('userLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('userEmail').value;
+            const password = document.getElementById('userPassword').value;
+            
+            // Simulate login process
+            showMessage('Signing you in...', 'success');
+            
+            setTimeout(() => {
+                // Redirect to home page or user dashboard
+                showMessage('Login successful! Redirecting...', 'success');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+            }, 1500);
+        });
+
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+            const accessCode = document.getElementById('adminCode').value;
+            
+            // Basic validation for demo purposes
+            if (username === 'admin' && password === 'admin123' && accessCode === 'LEPAON2025') {
+                showMessage('Admin authentication successful!', 'success');
+                setTimeout(() => {
+                    accessAdminPanel();
+                }, 1000);
+            } else {
+                showMessage('Invalid admin credentials. Please check your username, password, and access code.', 'error');
+            }
+        });
+
+        // Utility functions
+        function showMessage(text, type) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = text;
+            messageBox.className = `message ${type}`;
+            messageBox.style.display = 'block';
+            
+            if (type === 'success') {
+                setTimeout(() => {
+                    messageBox.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        function showForgotPassword() {
+            alert('Please contact Le Paon Supermarket at +250 790 250 596 or info@lepaonsupermarket.rw for password reset assistance.');
+        }
+
+        function showSignup() {
+            // Redirect to signup page or show signup form
+            alert('Signup feature coming soon! For now, please visit our store or contact us to create an account.');
+        }
+
+        function accessAdminPanel() {
+            // Redirect to admin panel
+            showMessage('Redirecting to Admin Panel...', 'success');
+            setTimeout(() => {
+                // You can replace this with the actual admin panel URL
+                window.location.href = 'admin-panel.html';
+            }, 1000);
+        }
+
+        // Auto-focus first input
+        window.addEventListener('load', () => {
+            document.getElementById('userEmail').focus();
+        });
+
+        // Enter key handling for forms
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const activeForm = document.querySelector('.login-form:not(.hidden)');
+                if (activeForm) {
+                    activeForm.dispatchEvent(new Event('submit'));
+                }
+            }
+        });
+    </script>
+</body>
+</html>
