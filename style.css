@@ -85,79 +85,75 @@ nav {
     font-weight: bold;
 }
 /* Responsive Navigation */
-@media (max-width: 900px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0 1rem;
-    }
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        font-size: 2rem;
-        color: #fff;
-        cursor: pointer;
-        margin-left: auto;
-        z-index: 1100;
-        width: 48px;
-        height: 48px;
-        position: relative;
-    }
-    .menu-toggle::before {
-        content: '\2630';
-        font-size: 2rem;
-        color: #fff;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-        background: #2c5530;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        display: none;
-        gap: 0;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-        z-index: 1001;
-    }
-    .nav-links li {
-        width: 100%;
-    }
-    .nav-links a {
-        display: block;
-        width: 100%;
-        padding: 1rem 2rem;
-        border-radius: 0;
-        text-align: left;
-    }
-    .nav-links.active {
-        display: flex;
-    }
-}
-
-@media (min-width: 901px) {
-    .menu-toggle {
-        display: none;
-    }
-    .nav-links {
-        display: flex !important;
-        position: static;
-        flex-direction: row;
-        background: none;
-        box-shadow: none;
-        width: auto;
-    }
-}
+  /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 1rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+                margin-left: auto;
+                z-index: 1100;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                background: #2c5530;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                display: none;
+                gap: 0;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+                z-index: 1001;
+            }
+            
+            .nav-links li {
+                width: 100%;
+            }
+            
+            .nav-links a {
+                display: block;
+                width: 100%;
+                padding: 1rem 2rem;
+                border-radius: 0;
+                text-align: left;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+        .login-main {
+                padding: 1rem;
+            }
+            
+            .login-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .login-header h1 {
+                font-size: 2rem;
+            }
+        }
+        @media (min-width: 901px) {
+            .menu-toggle {
+                display: none;
+            }
+            
+            .nav-links {
+                display: flex !important;
+                position: static;
+                flex-direction: row;
+                background: none;
+                box-shadow: none;
+                width: auto;
+            }
+        }      
 
 /* Hero Section */
 main {
