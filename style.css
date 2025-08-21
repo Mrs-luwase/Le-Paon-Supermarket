@@ -20,14 +20,14 @@ h1, h2, h3, h4 {
 
 /* Header and Navigation */
 header {
-    background: #2c5530;
-    color: white;
-    padding: 1rem 0;
+   background: var(--gradient-primary);
     position: fixed;
-    width: 100%;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    transition: background-color 0.3s ease;
+    box-shadow: var(--shadow-medium);
+    backdrop-filter: blur(10px);
 }
 
 nav {
@@ -116,6 +116,7 @@ nav {
 
             .store-name {
                 font-size: 1.8rem;
+                color: #f9f9f9;
             }
 
             .logo {
