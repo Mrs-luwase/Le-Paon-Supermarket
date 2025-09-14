@@ -214,11 +214,12 @@
 
         .categories-nav {
             display: flex;
+            justify-content: center;
             overflow-x: auto;
             scrollbar-width: none;
             -ms-overflow-style: none;
             background: linear-gradient(to right, #f8f9fa 85%, #90c695 100%);
-
+            padding: 0.5rem 0;
         }
 
         .categories-nav::-webkit-scrollbar {
@@ -229,6 +230,9 @@
             position: relative;
             white-space: nowrap;
         }
+        .category-item.active {
+    background-color: #e9f5eb;
+}
 
         .category-btn {
             background: none;
@@ -399,7 +403,15 @@
         .add-to-cart-btn:hover {
             background: #90c695;
         }
-
+        /* No products message */
+.no-products {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    display: none;
+}
         /* Footer */
         footer {
             background: #1a3a1e;

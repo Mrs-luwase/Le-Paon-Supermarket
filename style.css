@@ -315,29 +315,75 @@ section {
     padding: 4rem 0;
 }
 
+/* Only blur the main showcase section */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#products {
+    position: relative;
+    background: url('images/grocery_store illustration.jpg') center center/cover no-repeat;
+    border-radius: 24px;
+    overflow: hidden;
+}
+#products::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1;
+}
+#products > * {
+    position: relative;
+    z-index: 2;
+}
 .section-title {
     text-align: center;
     font-size: 3rem; /* Increased font size */
     font-weight: 700;
     margin-bottom: 3rem;
-    color: #2c5530;
+    color: #254425;
     text-shadow: 0 2px 8px rgba(144,198,149,0.10);
+}
+/* Specific green font for What We Offer and Visit Us Today */
+#products .section-title {
+    color: #2c5530 !important;
+}
+#contact .section-title {
+    color: #f5f8f5 !important;
 }
 
 /* Products Grid */
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+    background: linear-gradient(135deg, #e8f5e9 0%, #e7eee8 100%);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(44, 85, 48, 0.08);
+    padding: 20px 16px;
 }
 
+
 .product-card {
-    background: white;
-    border-radius: 10px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(44, 85, 48, 0.12);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #c8e6c9;
 }
 
 .product-card:hover {
@@ -476,6 +522,37 @@ section {
     }
     
 }
+/* Add Review Large Image Styling */
+.add-review-large-image {
+    width: 100%;
+    max-width: 500px;
+    min-width: 300px;
+    height: 550px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(44,85,48,0.15);
+    margin: 2rem auto;
+    display: block;
+}
+/* Add Review Section Two-Column Layout */
+.add-review-section {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.add-review-form {
+    flex: 1 1 350px;
+    min-width: 300px;
+}
+.add-review-image {
+    flex: 1 1 350px;
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Form styling */
 .add-review-form {
     background: rgb(196, 236, 241);
@@ -642,7 +719,25 @@ section {
 .quick-link a:hover {
     color: #ff6b35;
 }
-
+/* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    z-index: 2000;
+    background: #25d366;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(44,85,48,0.15);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.2s;
+}
+.whatsapp-float:hover {
+    box-shadow: 0 8px 32px rgba(44,85,48,0.25);
+    background: #128c7e;
+}
 
 /* Footer */
 footer {

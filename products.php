@@ -121,6 +121,15 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <!-- Products Content -->
         <section class="products-content">
             <div class="container">
+                <div class="filter-message" id="filterMessage">
+            Showing products in category: <span id="currentCategory">All Categories</span>
+            <button id="clearFilter" style="margin-left: 10px; background: #ff6b35; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">
+                Clear Filter
+            </button>
+        </div>
+        <div class="no-products" id="noProducts">
+            No products found in this category. Please try another category.
+        </div>
                 <div class="products-grid" id="productsGrid">
                     <!-- Sample Products -->
              
@@ -133,6 +142,8 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <h3 class="product-name"><?php echo htmlspecialchars($product['name']); ?></h3>
                             <p class="product-price"><?php echo number_format($product['price'], 2); ?> RWF</p>
                             <p class="product-description"><?php echo htmlspecialchars($product['description']); ?></p>
+                            
+                            <div class="product-category" style="display: none;"><?php echo htmlspecialchars($product['category_name']); ?></div>
                             <button class="add-to-cart-btn">Add to Cart</button>
                         </div>
                     </div>
@@ -193,81 +204,103 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
             });
         });
 
-        // Search functionality
-        const searchBtn = document.getElementById('searchBtn');
-        const searchInput = document.getElementById('searchInput');
-        const categoryFilter = document.getElementById('categoryFilter');
-
-        searchBtn.addEventListener('click', performSearch);
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
+        // Category filtering functionality
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.preventDefault();
+            const categoryName = item.textContent.trim();
+            filterProductsByCategory(categoryName);
         });
+    });
 
-        function performSearch() {
-            const query = searchInput.value.trim();
-            const category = categoryFilter.value;
-            
-            if (query || category !== 'all') {
-                console.log('Searching for:', query, 'in category:', category);
-                // Implement search logic here
-                // This could filter the products grid or redirect to a search results page
-            }
+   // Enhanced filtering function
+function filterProductsByCategory(categoryName) {
+    const productCards = document.querySelectorAll('.product-card');
+    const filterMessage = document.getElementById('filterMessage');
+    const currentCategorySpan = document.getElementById('currentCategory');
+    const noProducts = document.getElementById('noProducts');
+    let found = false;
+    
+    productCards.forEach(card => {
+        const cardCategory = card.querySelector('.product-category').textContent;
+        
+        if (categoryName === 'All Categories' || cardCategory === categoryName) {
+            card.style.display = 'block';
+            found = true;
+        } else {
+            card.style.display = 'none';
         }
+    });
+    
+    // Update filter message
+    if (categoryName !== 'All Categories') {
+        currentCategorySpan.textContent = categoryName;
+        filterMessage.style.display = 'block';
+    } else {
+        filterMessage.style.display = 'none';
+    }
+    
+    // Show no products message if needed
+    noProducts.style.display = found ? 'none' : 'block';
+    
+    // Scroll to products section
+    document.querySelector('.products-content').scrollIntoView({ behavior: 'smooth' });
+}
 
-        // Cart functionality
-        let cartCount = 0;
-        const cartCountElement = document.getElementById('cartCount');
-        const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+// Add clear filter functionality
+document.getElementById('clearFilter').addEventListener('click', () => {
+    filterProductsByCategory('All Categories');
+});
 
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                cartCount++;
-                cartCountElement.textContent = cartCount;
-
-      // Save to localStorage
-        localStorage.setItem('lepacon-cart-count', cartCount);
-                
-                // Visual feedback
-                button.style.background = '#90c695';
-                button.textContent = 'Added!';
-                
-                setTimeout(() => {
-                    button.style.background = '#2c5530';
-                    button.textContent = 'Add to Cart';
-                }, 1500);
-            });
+    // Add "All Categories" option to dropdown
+    const firstCategory = document.querySelector('.category-item');
+    if (firstCategory) {
+        const allCategoriesItem = document.createElement('a');
+        allCategoriesItem.href = '#';
+        allCategoriesItem.className = 'dropdown-item';
+        allCategoriesItem.textContent = 'All Categories';
+        
+        allCategoriesItem.addEventListener('click', (e) => {
+            e.preventDefault();
+            filterProductsByCategory('All Categories');
         });
+        
+        firstCategory.querySelector('.dropdown-menu').prepend(allCategoriesItem);
+    }
 
-        // Category filtering
-        categoryItems.forEach(item => {
-            const button = item.querySelector('.category-btn');
-            const dropdownItems = item.querySelectorAll('.dropdown-item');
+    // Cart functionality
+    let cartCount = 0;
+    const cartCountElement = document.getElementById('cartCount');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
             
-            dropdownItems.forEach(dropdownItem => {
-                dropdownItem.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const category = button.dataset.category;
-                    const subcategory = dropdownItem.textContent;
-                    
-                    console.log('Filtering by:', category, '-', subcategory);
-                    // Implement filtering logic here
-                    
-                    // Close dropdown
-                    item.classList.remove('active');
-                });
-            });
+            // Show alert message
+            alert('Thank you for your interest! To complete your order, please call us or text on WhatsApp at +250790250596.');
+            
+            cartCount++;
+            cartCountElement.textContent = cartCount;
+
+            // Save to localStorage
+            localStorage.setItem('lepacon-cart-count', cartCount);
+            
+            // Visual feedback
+            button.style.background = '#90c695';
+            button.textContent = 'Added!';
+            
+            setTimeout(() => {
+                button.style.background = '#2c5530';
+                button.textContent = 'Add to Cart';
+            }, 1500);
         });
+    });
 
-        // Smooth scrolling
-        document.documentElement.style.scrollBehavior = 'smooth';
-
-        // Initialize cart count from storage (if available)
-        const savedCartCount = parseInt(localStorage.getItem('lepacon-cart-count') || '0');
-        cartCount = savedCartCount;
-        cartCountElement.textContent = cartCount;
+    // Initialize cart count from storage (if available)
+    const savedCartCount = parseInt(localStorage.getItem('lepacon-cart-count') || '0');
+    cartCount = savedCartCount;
+    cartCountElement.textContent = cartCount;
     </script>
 </body>
 </html>

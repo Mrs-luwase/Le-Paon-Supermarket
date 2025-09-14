@@ -158,33 +158,39 @@
         </section>
            <section class="add-review">
             <!-- Add Review Form -->
-                <div class="add-review-form">
-                    <h3>Share Your Experience</h3>
-                    <div class="success-message" id="reviewSuccessMessage">
-                        Thank you for your review!It has been submitted successfully.
-                    </div>
-                    <form id="reviewForm" action="submit_review.php" method="POST">
-                        <div class="form-group">
-                            <label for="reviewName">Your Name:</label>
-                            <input type="text" id="reviewName" name="name" required>
+                <div class="add-review-section">
+                    <div class="add-review-form">
+                        <h3>Share Your Experience</h3>
+                        <div class="success-message" id="reviewSuccessMessage">
+                            Thank you for your review!It has been submitted successfully.
                         </div>
-                        <div class="form-group">
-                            <label for="reviewRating">Rating:</label>
-                            <div class="star-rating" id="starRating">
-                                <span class="star" data-rating="1">★</span>
-                                <span class="star" data-rating="2">★</span>
-                                <span class="star" data-rating="3">★</span>
-                                <span class="star" data-rating="4">★</span>
-                                <span class="star" data-rating="5">★</span>
+                        <form id="reviewForm" action="submit_review.php" method="POST">
+                            <div class="form-group">
+                                <label for="reviewName">Your Name:</label>
+                                <input type="text" id="reviewName" name="name" required>
                             </div>
-                            <input type="hidden" id="reviewRating" name="rating" value="0">
-                        </div>
-                        <div class="form-group">
-                            <label for="reviewText">Your Review:</label>
-                            <textarea id="reviewText" name="review" placeholder="Tell us about your experience..." required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Submit Review</button>
-                    </form>
+                            <div class="form-group">
+                                <label for="reviewRating">Rating:</label>
+                                <div class="star-rating" id="starRating">
+                                    <span class="star" data-rating="1">★</span>
+                                    <span class="star" data-rating="2">★</span>
+                                    <span class="star" data-rating="3">★</span>
+                                    <span class="star" data-rating="4">★</span>
+                                    <span class="star" data-rating="5">★</span>
+                                </div>
+                                <input type="hidden" id="reviewRating" name="rating" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="reviewText">Your Review:</label>
+                                <textarea id="reviewText" name="review" placeholder="Tell us about your experience..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Submit Review</button>
+                        </form>
+                    </div>
+                    <div class="add-review-image">
+                        <img src="images/paon.jpg" alt="Customer Experience" class="add-review-large-image" />
+                    </div>
+                </div>
         </section>
 
         <!-- Contact section -->
@@ -256,6 +262,11 @@
             <p>&copy; 2025 Le Paon Supermarket. All rights reserved. | Experience the difference with us.</p>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/250790250596" target="_blank" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 64px;px;height:72px;" />
+    </a>
 
     <script src="script.js"></script>
 </body>
